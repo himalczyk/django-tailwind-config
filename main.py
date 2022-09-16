@@ -21,7 +21,7 @@ def create_virtual_env(target_directory: str) -> None:
     os.system('cmd /c "python -m venv venv"')
     pass
 
-def activate_virtual_env():
+def activate_virtual_env() -> None:
     """Activate venv"""
     os.system('cmd /c "venv\Scripts\activate"')
     pass
@@ -43,15 +43,6 @@ def create_django_app(poject_directory_name: str, django_app_name: str) -> str:
     os.system(f'cmd /c cd {poject_directory_name}')
     os.system(f'python manage.py startapp {django_app_name}')
     return django_app_name
-
-
-def get_project_admin_path(target_directory: str, django_app_name: str) -> str:
-    """Creates the main project app folder PATH with settings.py and urls.py for the whole project"""
-    path = os.path.join(target_directory, django_app_name)
-    next_path = os.path.join(path, django_app_name)
-    os.chdir(next_path)
-    project_app_admin_path = os.getcwd()
-    return project_app_admin_path
 
 def replace_django_settings_file(project_app_admin_path: str) -> None:
     """Configures the project -> project_folder -> settings.py file with tailwind and new created app name"""
@@ -82,6 +73,6 @@ def configure_django_settings_file(project_app_admin_path: str, django_app_name:
 
 default = os.getcwd()
 create_initial_files(default)
-# django_project_name = create_django_startproject_files(default, 'django_config_creator')
+django_project_name = create_django_startproject_files(default, 'django_config_creator')
 # django_app_name = create_django_app(django_project_name, 'django_config')
 # configure_django_app_settings(django_project_name, 'django_app_name')
