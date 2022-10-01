@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-tailwind-config"
+version = "1.0.0"
+description = "Set up everything for django+tailwind with the startproject, app and django-tailwind commands included config up to activating venv"
+readme = "README.md"
+authors = [{ name = "Dawid Michalczyk", email = "dawid.michalczykw@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming language :: Python",
+    "Programming language :: 3",
+]
+keywords = ["django", "tailwind", "config", "builder"]
+dependencies = [
+    "django",
+    "django-tailwind",
+    "click",
+]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/himalczyk/django-tailwind-config"
+
+[project.scripts]
+djangotailwindconfig = "django_tailwind_config.__main__:main"
